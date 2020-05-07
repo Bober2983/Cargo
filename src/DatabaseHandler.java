@@ -2,15 +2,14 @@ import java.sql.*;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import Controller.Configs;
 
 public class DatabaseHandler extends Configs {
     Connection con;
 
     public Connection getCon()
             throws ClassNotFoundException, SQLException {
-        String ConString = "jdbc:mysql://localhost:3306/my_base";
-        Class.forName("com.mysql.jdbc.Driver");
+        String ConString = "jdbc:postgresql://localhost:3306/my_base";
+        Class.forName("org.postgresql.jdbc.Driver");
         con = DriverManager.getConnection(ConString, dbUser, dbPass);
         return con;
     }
